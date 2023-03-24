@@ -63,7 +63,42 @@ public class LoginForm {
 
     // Reset Password
     public void resetPasswordPage() {
+        String oldPassword;
+        String ans = "N";
+        System.out.print("""
+                ----------------------------------------
+                             Reset Password
+                ----------------------------------------
+                """);
+        do {
+            System.out.print("Old Password: ");
+            oldPassword = sc.nextLine();
+            // Compare Password
+            if (oldPassword.compareTo(password) < 0 || oldPassword.compareTo(password) > 0) {
+                System.out.println("Wrong Password!\nWanna try agian! (Y/N): ");
+                ans = sc.nextLine();
+            }
+        } while (ans.compareTo("Y") == 0 || ans.compareTo("y") == 0);
+        if (oldPassword.compareTo(password) == 0) {
+            System.out.println("--------------- New Password ---------------");
+            do {
+                System.out.print("New Password: ");
+                password = sc.nextLine();
+                System.out.print(" Re-Password: ");
+                rePassword = sc.nextLine();
 
+                // Compare Password
+                if (rePassword.compareTo(password) < 0 || rePassword.compareTo(password) > 0) {
+                    System.out.println("Re-password is wrong!\nTry agian!");
+                } else {
+                    System.out.print("""
+                            ----------------------------------------
+                                        Rest Successfully!
+                            ----------------------------------------
+                            """);
+                }
+            } while (rePassword.compareTo(password) < 0 || rePassword.compareTo(password) > 0);
+        }
     }
 
     // Login Page
