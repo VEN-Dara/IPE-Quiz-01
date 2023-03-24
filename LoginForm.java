@@ -41,7 +41,32 @@ public class LoginForm {
 
     //Login Page
     public void loginPage() {
-        
+        String ans = "N";
+        System.out.print("""
+                ----------------------------------------
+                            Login Account
+                ----------------------------------------
+                """);
+        System.out.print("   Gmail: ");
+        gmail = sc.nextLine();
+        do {
+            System.out.print("Password: ");
+            String password = sc.nextLine();
+            //Compare Password
+            if(password.compareTo(this.password) < 0 || password.compareTo(this.password) > 0 ) {
+                System.out.println("Wrong Password!\nWanna try agian! (Y/N): ");
+                ans = sc.nextLine();
+            }
+            else {
+                System.out.print("""
+                    ----------------------------------------
+                                Login Successfully !
+                    ----------------------------------------
+                    """);
+                loginSuccess = true;
+            }
+        }
+        while(ans.compareTo("Y") == 0 || ans.compareTo("y") == 0 );
     }
 
     public void profile() {
